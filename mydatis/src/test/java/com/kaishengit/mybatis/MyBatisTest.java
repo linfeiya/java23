@@ -9,11 +9,16 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.kaishengit.entity.User;
+import com.kaishengit.util.MybatisUtil;
 
 	
 public class MyBatisTest {
+	
+	private Logger logger = LoggerFactory.getLogger(MyBatisTest.class);
 	@Test
 	public void first() throws Exception{
 		//1.º”‘ÿ≈‰÷√Œƒº˛
@@ -94,16 +99,17 @@ public class MyBatisTest {
 	
 	@Test
 	public void findAll() throws Exception{
-		Reader reader = Resources.getResourceAsReader("mybatis.xml");
-		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
-		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+
+		SqlSession sqlSession = MybatisUtil.getSqlSession();
 		
 		List<User> userList = sqlSession.selectList("com.kaishengit.mapper.UserMapper.findAll");
 		
 		for(User user : userList){
-			System.out.println(user.getUserName());
+			logger.debug("{}-->>{}-->{}",user.getUserName(),user.getAddress(),user.getUserAge());
+			/*System.out.println(user.getUserName());
 			System.out.println(user.getAddress());
-			System.out.println(user.getUserAge());
+			System.out.println(user.getUserAge());*/
 		}
 		sqlSession.close();
 	}

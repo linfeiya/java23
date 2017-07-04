@@ -27,4 +27,35 @@
   	<select id="findAll" resultType="User">
   		select * from t_user
   	</select>
+  	<!-- 
+  		ongl 进行映射
+  	<select id="findAllByLoadDept" resultType="userMap">
+  		select 
+  				t_user.id,user_name,user_age,address,dept_id,
+  				t_dept.id as `dept.id`,
+  				t_dept.dept_name as `dept.deptName`
+  		from 
+  				t_user,t_dept
+  		where 
+  				t_user.dept_id = t_dept.id
+  				
+  	</select> -->
+  	
+  	<select id="findAllLoadDept" resultMap="userMap">
+		select t_user.id,user_name,user_age,address,dept_id,dept_name from t_user,t_dept
+		where t_user.dept_id = t_dept.id
+	</select> 
+  	<!-- 自定义结果集映射，告诉MyBatis如何将列和类的属性对应 -->
+  	<resultMap type="User" id="userMap">
+  		<id column="id" property="id"/>
+  		<result column="user_name" property="userName"/>
+  		<result column="user_age" property="userAge"/>
+  		<result column="address" property="address"/>
+  		<result column="dept_id" property="deptId"/>
+  		<association property="dept" javaType="Dept">
+  			<id column="dept_id" property="id"/>
+  			<result column="dept_name" property="deptName"/>
+  		</association>
+  	</resultMap>
+  	
   </mapper>
