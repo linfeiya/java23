@@ -3,4 +3,37 @@
   <groupId>com.kaishengit</groupId>
   <artifactId>mybatis</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  <!-- 常量配置 -->
+  <properties>
+  	<junit-version>4.12</junit-version>
+  	<mysql-version>5.1.40</mysql-version>
+  	<mybatis-version>3.4.4</mybatis-version>
+  </properties>
+  
+  <!-- 依赖 -->
+  <dependencies>
+  <!-- mybatis -->
+	  	<dependency>
+	    	<groupId>org.mybatis</groupId>
+		    <artifactId>mybatis</artifactId>
+		    <version>#{mybatis-version}</version>
+		</dependency>
+  	<!-- mysql -->
+  	
+  	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>#{mysql-version}</version>
+	</dependency>
+	<!-- junit -->
+	  	<dependency>
+		    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		    <version>#{junit-version}</version>
+		</dependency>
+	  	
+  </dependencies>
+  
+  
 </project>
