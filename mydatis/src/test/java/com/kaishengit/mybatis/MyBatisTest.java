@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.kaishengit.entity.User;
+import com.kaishengit.mapper.UserMapper;
 import com.kaishengit.util.MybatisUtil;
 
 	
@@ -73,13 +74,21 @@ public class MyBatisTest {
 	}
 	
 	@Test
+	public void updateById() throws Exception{
+		SqlSession sqlSession = MybatisUtil.getSqlSession();
+		
+		sqlSession.selectOne("com.kaishengit.mapper.UserMapper.updateById",6);
+		sqlSession.close();
+	}
+	
+	@Test
 	public void delById() throws Exception{
 		
 		Reader reader = Resources.getResourceAsReader("mybatis.xml");
 		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		
-		sqlSession.selectOne("com.kaishengit.mapper.UserMapper.delById",1);
+		sqlSession.selectOne("com.kaishengit.mapper.UserMapper.save",1);
 		
 		sqlSession.close();
 		

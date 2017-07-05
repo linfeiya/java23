@@ -30,7 +30,6 @@
 	<!-- 加载mapper -->
 	<mappers>
 		<mapper resource="mapper/UserMapper.xml" />
-		<mapper resource="mapper/DeptMapper.xml"/>
 	</mappers>
 	
 </configuration>

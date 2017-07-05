@@ -28,12 +28,27 @@ public class UserMapperTest {
 	public void after(){
 		sqlSession.close();
 	}
+	@Test
+	public void findAllLoadDept(){
+
+		List<User> userList = userMapper.findAllLoadDept();
+		for(User user : userList){
+			logger.debug("{}-->{}-->{}",user.getUserName(),user.getUserName(),user.getAddress());
+		}
+		
+	}
+	@Test
+	public void findAll(){
+		List<User> userList = userMapper.findAllLoadDept();
+		for(User user : userList){
+			logger.debug("{}-->{}",user.getDept().getDeptName(),user.getUserName());
+		}
+		
+	}
 	
 	@Test
 	public void findById(){
-		SqlSession sqlSession = MybatisUtil.getSqlSession();
-		//动态代理模式、接口指向实现类
-		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+		
 		User user = userMapper.findById(2);
 		
 		logger.debug("{}",user);
@@ -41,8 +56,6 @@ public class UserMapperTest {
 	}
 	@Test
 	public void save(){
-		SqlSession sqlSession = MybatisUtil.getSqlSession();
-		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 		
 		User user = new User();
 		user.setUserName("小明");
@@ -54,13 +67,5 @@ public class UserMapperTest {
 		sqlSession.close();
 		
 	}
-	@Test
-	public void findAllLoadDept(){
-
-		List<User> userList = userMapper.findAllLoadDept();
-		for(User user : userList){
-			logger.debug("{}-->{}",user.getUserName(),user.getUserAge(),user.getAddress());
-		}
-		
-	}
+	
 }
