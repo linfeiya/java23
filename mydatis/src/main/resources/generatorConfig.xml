@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+  <generatorConfiguration>
+  		<!-- 连接数据库jar位置 -->
+  		<classPathEntry location="G:/jars/commons-dbutils-1.6/mysql-connector-java-5.1.6.jar"/>
+  		<!-- 数据库信息 -->
+  		<context id="MBGConfig" targetRuntime="MyBatis3Simple">
+  			<!-- 连接数据库 -->
+  			<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql:///db_23" userId="root" password="rootroot"/>
+  			
+  			<!-- 实体类的生成 -->
+  			<javaModelGenerator targetPackage="com.kaishengit.entity" targetProject="src/main/java" />
+  			
+  			<!-- mapper xml文件的生成 -->
+  			<sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources" />
+  			
+  			<!-- mapper接口的生成 -->
+  			<javaClientGenerator targetPackage="com.kaishengit.mapper" type="XMLMAPPER" targetProject="src/main/java" />
+  			
+  			<!-- 给它哪个表名 -->
+  			<table tableName=""></table>
+  		</context>
+  </generatorConfiguration>

@@ -45,6 +45,9 @@
 		    <version>${slf4j-version}</version>
 		</dependency>
   </dependencies>
-  
+  <build>
+  	<!-- 送向工程插件配置 -->
+  	
+  </build>
   
 </project>
