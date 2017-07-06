@@ -169,5 +169,18 @@ public class UserMapperTest {
 		
 		System.out.println(user.getUserName());
 	}
+	@Test
+	public void seachByNameAndPassword(){
+		Map<String,Object> map = new HashMap<>();
+		
+		map.put("name", "jack");
+		map.put("password","123123");
+		
+		List<User> userList = userMapper.findByNameAndPassword(map);
+		for(User user: userList){
+			System.out.println(user.getUserName() + "-->" + user.getAddress());
+		}
+		
+	}
 	
 }

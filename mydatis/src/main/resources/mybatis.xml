@@ -30,6 +30,7 @@
 	
 	<!-- 加载mapper -->
 	<mappers>
+		<mapper class="com.kaishengit.mapper.UserMapper"/>
 		<mapper resource="mapper/DeptMapper.xml"/>
 		<mapper resource="mapper/UserMapper.xml" />
 	</mappers>

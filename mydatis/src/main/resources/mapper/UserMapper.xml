@@ -7,14 +7,23 @@
   		namespace属性值为类的完全限定名	
    -->
   <mapper namespace="com.kaishengit.mapper.UserMapper">
-  	
+  	<!-- 开启二级缓存  -->
   	<cache/>
+  	<!-- 
+  		或者用LRU淘汰算法刷新缓存 
+  	<cache readOnly="true" size="2048" flushInterval="60" eviction="FIFO"/>
+  		-->
+  	<!-- 
+  		或者在 Mapper配置文件中的select语句中,添加一个useCache=false 这个sql可禁止被缓存 
+  		在insert update delete 节点中添加 flushCache = false 可禁止缓存
+  		-->
+  		
   	<sql id="allColumns">
   		id,dept_id,user_name,user_age,address,password
   	</sql>
   	<!-- sql语句 -->
   	<!-- 根据id查询User对象 -->
-  	<select id="findById" parameterType="int" resultType="User" >
+  <!-- 	<select id="findById" parameterType="int" resultType="User" >
   		select * from t_user where id = #{id}
   	</select>
   	<insert id="save" parameterType="User">
@@ -25,7 +34,7 @@
   	<update id="update" parameterType="User">
   		update t_user set user_name = #{userName},user_age = #{userAge},address = #{address}
   		where id = #{id}
-  	</update>
+  	</update> -->
   	<delete id="delById" parameterType="int">
   		delete from t_user where id = #{id}
   	</delete>
@@ -73,6 +82,21 @@
   					and address = #{address}
   				</if>
   			</where>
+  	</select>
+  	
+  	<select id="searchByNameAndPassword" parameterType="map" resultType="User">
+  		select 
+  			<include refid="allColumns" />
+  		from t_user
+  			<trim prefix="where" prefixOverrides="and|or">
+  				<if test="name != null and name != ''">
+  					user_name = #{name}
+  				</if>
+  				<if test="password != null and password != ''">
+  					and password = #{password}
+  				</if>
+  			</trim>
+  	
   	</select>
   	
   	<delete id="delByIds" parameterType="list">
