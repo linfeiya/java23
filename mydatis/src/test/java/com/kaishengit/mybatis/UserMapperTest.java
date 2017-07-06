@@ -1,6 +1,9 @@
 package com.kaishengit.mybatis;
 
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.junit.After;
@@ -68,8 +71,103 @@ public class UserMapperTest {
 		
 	}
 	@Test
-	public void findIdByNameAndPassword(String userName,String password){
-		userMapper.findIdByNameAndPassword(userName, password);
+	public void findIdByNameAndPassword(){
+		
+		User user = userMapper.findIdByNameAndPassword("tom", "123");
+		System.out.println("ID : " + user.getId());
+		sqlSession.close();
+	}
+	@Test
+	public void findByMapParam(){
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("name", "tom");
+		map.put("password", "123");
+		User user = userMapper.findByMapParam(map);
+		System.out.println(user.getId());
+		
+	}
+	@Test
+	public void findMapParam(){
+		
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("name", "jack");
+		map.put("password", "2222");
+		
+		User user = userMapper.findByMapParam(map);
+		System.out.println(user.getId()+ "-->" +user.getAddress());
+	}	
+	@Test
+	public void searchByNameAndAddress(){
+		
+		Map<String,Object> map = new HashMap<String, Object>();
+		//map.put("name", "小明");
+		map.put("address", "郑州");
+		
+		List<User> userList = userMapper.searchByNameAndAddress(map);
+		for(User user :userList){
+			System.out.println(user.getId()+ "-->" + user.getUserName());
+		}
+	}
+	
+	@Test
+	public void delByIds(){
+		
+		List<Integer> idList = Arrays.asList(7,8);
+		userMapper.delByIds(idList);
+		
+		sqlSession.commit();
+	}
+	@Test
+	public void batchSave(){
+		
+		List<User> userList = Arrays.asList(new User(2,"张三",32,"焦作","123456"),
+				new User(2,"王五",32,"焦作","123456"),new User(2,"李四",32,"焦作","123456"));
+		
+		userMapper.batchSave(userList);
+		sqlSession.commit();
+		for(User user : userList){
+			System.out.println(user.getId());
+		}
+		
+	}
+	@Test
+	public void findByNameAndPassowrd(){
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("name", "张三");
+		map.put("password", "123");
+		
+		List<User> userList = userMapper.findByNameAndPassword(map);
+		for(User user: userList){
+			
+			System.out.println(user.getUserName()+ "-->" +user.getAddress());
+		}
+		
+	}
+	
+	@Test
+	public void secLevelCache(){
+		SqlSession sqlSession1 = MybatisUtil.getSqlSession();
+		UserMapper userMapper = sqlSession1.getMapper(UserMapper.class);
+		
+		User user1 = userMapper.findById(15);
+		
+		System.out.println(user1.getUserName());
+		sqlSession1.close();
+		
+		System.out.println("----------------------------");
+		
+		SqlSession sqlSession2 = MybatisUtil.getSqlSession();
+		UserMapper userMapper2 = sqlSession2.getMapper(UserMapper.class);
+		User user2 = userMapper2.findById(15);
+		System.out.println(user2.getUserName());
+	}
+	
+	@Test
+	public void firstLevelCache(){
+		User user = userMapper.findById(16);
+		User user2 = userMapper.findById(16);
+		
+		System.out.println(user.getUserName());
 	}
 	
 }

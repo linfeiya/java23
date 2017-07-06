@@ -8,6 +8,10 @@
    -->
   <mapper namespace="com.kaishengit.mapper.UserMapper">
   	
+  	<cache/>
+  	<sql id="allColumns">
+  		id,dept_id,user_name,user_age,address,password
+  	</sql>
   	<!-- sql语句 -->
   	<!-- 根据id查询User对象 -->
   	<select id="findById" parameterType="int" resultType="User" >
@@ -48,10 +52,55 @@
   		update t_user set user_name = "jack"
   		where id = #{id}
   	</update>
-  	<select id="findIdByNameAndPassword">
-  		select * form t_user where name = #{userName} and password = #{password}
+  	<select id="findIdByNameAndPassword" resultType="User">
+  		select * from t_user where user_name = #{userName} and password = #{password}
   	</select>
   	
+  	<select id="findByMapParam" parameterType="map" resultType="User">
+  		select
+  		<include refid="allColumns" />
+  		from t_user where user_name = #{name} and password = #{password}
+  	</select>
+  	<select id="searchByNameAndAddress" parameterType="map" resultType="User">
+  		select 
+  			<include refid="allColumns" />
+  		from t_user 
+  			<where>
+  				<if test="name !=null and name != ''">
+  					user_name = #{name}
+  				</if>
+  				<if test="address != null and address != ''">
+  					and address = #{address}
+  				</if>
+  			</where>
+  	</select>
+  	
+  	<delete id="delByIds" parameterType="list">
+  		delete from t_user where id in (
+  		<foreach collection="list" item="id" separator=",">
+  			#{id}
+  		</foreach>
+  		)
+  	</delete>
+  	<select id="findByNameAndPassword" parameterType="map" resultType="User">
+  		select 
+  				<include refid="allColumns" />
+  		from t_user
+  		<where>
+  			<if test="name != null and name != ''">
+  				user_name = #{name}
+  			</if>
+  			<if test="passowrd != null and password != ''">
+  				and password = #{password}
+  			</if>
+  		</where> 
+  	</select>
+  	<insert id="batchSave" parameterType="List" useGeneratedKeys="true" keyProperty="id">
+  		insert into t_user(dept_id,user_name,user_age,address,password) values
+  		<foreach collection="list" item="user" separator=",">
+  			(#{user.deptId},#{user.userName},#{user.userAge},#{user.address},#{user.password})
+  		</foreach>
+  	</insert>
   	<!-- <select id="findAllLoadDept" resultMap="userMap">
 		select t_user.id,user_name,user_age,address,dept_id,dept_name from t_user,t_dept
 		where t_user.dept_id = t_dept.id

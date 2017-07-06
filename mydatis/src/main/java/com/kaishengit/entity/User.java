@@ -1,13 +1,41 @@
 package com.kaishengit.entity;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private Integer id;
 	private Integer deptId;
 	private String userName;
 	private Integer userAge;
 	private String address;
+	private String password;
 	private Dept dept;
 	
+	public User(Integer deptId, String userName, Integer userAge, String address, String password) {
+		super();
+		this.deptId = deptId;
+		this.userName = userName;
+		this.userAge = userAge;
+		this.address = address;
+		this.password = password;
+	}
+
+	public User(){}
+	
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public Dept getDept() {
 		return dept;
 	}
