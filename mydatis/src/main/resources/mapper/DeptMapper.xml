@@ -3,11 +3,41 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.kaishengit.mapper.DeptMapper">
-  <select id="findByIdLoadMapper" parameterType="int" resultType="Dept">
+  <select id="findByIdLoadMapper" parameterType="int" resultMap="deptMap">
   
+  
+  	select 
+  		t_dept.id,
+  		dept_name,
+  		dept_password,
+  		t_user.id as userid,
+  		dept_id,
+  		user_name,
+  		user_age,
+  		address,
+  		password
+  	from 
+  		t_dept
+  	left join
+  		t_user 
+  	on t_dept.id = t_user.dept_id
+  	where 
+  		t_dept.id= #{id}
   </select>
-  	
-  
+  <!-- 自定义结果集映射 -->
+  <resultMap type="Dept" id="deptMap">
+  	<id column="id" property="id"/>
+  	<result column="dept_name" property="deptName"/>
+  	<result column="dept_password" property="deptPassword"/>
+  	<collection property="userList" ofType="User">
+  		<id column="userid" property="id"/>
+  		<result column="dept_id" property="deptId"/>
+  		<result column="user_name" property="userName"/>
+  		<result column="user_age" property="userAge"/>
+  		<result column="address" property="address"/>
+  		<result column="password" property="password"/>
+  	</collection>
+  </resultMap>
   
   
   </mapper>

@@ -5,7 +5,13 @@ import java.util.List;
 public class Dept {
 	private Integer id;
 	private String deptName;
-	private String password;
+	private String deptPassword;
+	public String getDeptPassword() {
+		return deptPassword;
+	}
+	public void setDeptPassword(String deptPassword) {
+		this.deptPassword = deptPassword;
+	}
 	private List<User> userList;
 	
 	public List<User> getUserList() {
@@ -26,10 +32,5 @@ public class Dept {
 	public void setDeptName(String deptName) {
 		this.deptName = deptName;
 	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
+
 }
