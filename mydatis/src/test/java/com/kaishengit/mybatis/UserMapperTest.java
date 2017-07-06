@@ -67,5 +67,9 @@ public class UserMapperTest {
 		sqlSession.close();
 		
 	}
+	@Test
+	public void findIdByNameAndPassword(String userName,String password){
+		userMapper.findIdByNameAndPassword(userName, password);
+	}
 	
 }

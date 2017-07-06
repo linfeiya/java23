@@ -20,6 +20,7 @@ import com.kaishengit.util.MybatisUtil;
 public class MyBatisTest {
 	
 	private Logger logger = LoggerFactory.getLogger(MyBatisTest.class);
+	
 	@Test
 	public void first() throws Exception{
 		//1.╪стьеДжцнд╪Ч
@@ -122,7 +123,6 @@ public class MyBatisTest {
 		}
 		sqlSession.close();
 	}
-	
 	
 	
 }

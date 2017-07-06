@@ -12,4 +12,5 @@ public interface UserMapper {
 	List<User> findAll();
 	List<User> findAllLoadDept();
 	void updateById(Integer id);
+	List<User> findIdByNameAndPassword(String userName,String password);
 }

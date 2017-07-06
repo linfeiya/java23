@@ -48,6 +48,10 @@
   		update t_user set user_name = "jack"
   		where id = #{id}
   	</update>
+  	<select id="findIdByNameAndPassword">
+  		select * form t_user where name = #{userName} and password = #{password}
+  	</select>
+  	
   	<!-- <select id="findAllLoadDept" resultMap="userMap">
 		select t_user.id,user_name,user_age,address,dept_id,dept_name from t_user,t_dept
 		where t_user.dept_id = t_dept.id

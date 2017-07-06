@@ -7,6 +7,7 @@
 <settings>
 <!-- 下划线和驼峰命名的映射 -->
 	<setting name="mapUnderscoreToCamelCase" value="true"/>
+
 </settings>
 <!-- 注册别名 -->
 <typeAliases>
@@ -29,6 +30,7 @@
 	
 	<!-- 加载mapper -->
 	<mappers>
+
 		<mapper resource="mapper/UserMapper.xml" />
 	</mappers>
 	
