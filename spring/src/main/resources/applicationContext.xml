@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--自动注入 byName名字set后面的 byType类型  constructor先要挂参数名后根据参数类型-->
+    <bean id="dao" class="com.kaishengit.dao.UserDao"/>
+    <bean class="com.kaishengit.dao.UserDao"/>
+    <bean id="service" class="com.kaishengit.service.UserService" autowire="constructor"/>
+
+    <!-- p标签注入 本质上是set注入
+    <bean id="userDao" class="com.kaishengit.dao.UserDao"/>
+    <bean id="service" class="com.kaishengit.service.UserService"
+          p:dao-ref="userDao" />-->
+
+   <!--
+    注入非对象类型
+   <bean id="userDao" class="com.kaishengit.dao.UserDao"/>
+    <bean id="diDemo" class="com.kaishengit.service.DiDemo">
+        <property name="score" value="23.3"/>
+        <property name="name" value="jack"/>
+        <property name="nameList">
+            <list>
+                <value>jack</value>
+                <value>tom</value>
+                <value>rose</value>
+            </list>
+        </property>
+        <property name="mySet">
+            <set>
+                <value>aa</value>
+                <value>bb</value>
+                <value>cc</value>
+            </set>
+        </property>
+        <property name="userMap">
+            <map>
+                <entry key="myUserDao" value-ref="userDao"/>
+            </map>
+        </property>
+        <property name="config">
+            <props>
+                <prop key="k1">v1</prop>
+                <prop key="k2">v2</prop>
+            </props>
+        </property>
+    </bean>-->
+    <!--构造方法 根据参数类型注入
+<bean id="userDao" class="com.kaishengit.dao.UserDao"/>
+    <bean id="service" class="com.kaishengit.service.UserService">
+        <constructor-arg type="com.kaishengit.dao.UserDao" ref="userDao"/>
+    </bean>-->
+
+    <!--构造方法 参数索引注入
+  <bean id="userDao" class="com.kaishengit.dao.UserDao"/>
+    <bean id="service" class="com.kaishengit.service.UserService">
+        <constructor-arg index="0" ref="userDao"/>
+    </bean>-->
+    <!--<bean id="userDao" class="com.kaishengit.dao.UserDao"/>
+    <bean id="userService" class="com.kaishengit.service.UserService">
+       <property name="dao" ref="userDao"/>
+    </bean>-->
+    <!-- 构造方法 参数数据类型注入 constructor-arg节点name属性值为构造方法传的参数 ref为Bean的id相同
+    <bean id="userDao" class="com.kaishengit.dao.UserDao"/>
+    <bean id="userService" class="com.kaishengit.service.UserService">
+        <constructor-arg name="dao" ref="userDao"/>
+    </bean>-->
+   <!-- set注入property节点name属性值为set方法后面首字母小写 ref 是bean的id值
+        <bean id="uesrService" class="com.kaishengit.service.UserService">
+        <property name="dao" ref="userDao"/>
+    </bean>-->
+
+  <!--  <alias name="userDao" alias="userDao2"/>-->
+    <!--<bean id="userDao" class="com.kaishengit.dao.UserDao" scope="singleton" />-->
+    <!--<bean id="dao" scope="prototype" class="com.kaishengit.dao.UserDao" />-->
+    <!--<bean id="dao" class="com.kaishengit.dao.UserDao" lazy-init="true"/>-->
+    <!--<bean id="dao" class="com.kaishengit.dao.UserDao" lazy-init="true" init-method="init" destroy-method="destory"/>-->
+    <!--<bean id="userDao" class="com.kaishengit.dao.UserDao" />-->
+  <!-- <bean class="com.kaishengit.dao.UserDao"/>
+    <bean class="com.kaishengit.dao.UserDao"/>-->
+</beans>
