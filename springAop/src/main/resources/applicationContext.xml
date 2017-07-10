@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--
+<bean id="userDao" class="com.kaishengit.dao.UserDao"/>
+    <bean id="accountDao" class="com.kaishengit.dao.AccountDao"/>
+    <bean id="userService" class="com.kaishengit.service.UserService" autowire="byName">
+        <constructor-arg name="userDao" ref="userDao"/>
+        <constructor-arg name="accountDao" ref="accountDao"/>
+    </bean>
+
+    &lt;!&ndash;将通知类放入spring中 &ndash;&gt;
+<bean id="aspectAdvice" class="com.kaishengit.aspect.AsperAdvice"/>
+    &lt;!&ndash; 配置Aop&ndash;&gt;
+    <aop:config>
+        <aop:aspect ref="aspectAdvice">
+            &lt;!&ndash;配置切入点表达式 声明目标对象 &ndash;&gt;
+            <aop:pointcut id="myPointcut" expression="execution(* com.kaishengit.service..*.*(..))"/>
+            &lt;!&ndash;&lt;!&ndash;配置要声明的通知类的方法&ndash;&gt;
+            <aop:before method="beforeAdvice" pointcut-ref="myPointcut"/>
+            <aop:after-returning method="afterAdvice" pointcut-ref="myPointcut"/>
+            <aop:after-throwing method="exceptionAdvice" pointcut-ref="myPointcut"/>
+            <aop:after method="finallyAdvice" pointcut-ref="myPointcut"/>&ndash;&gt;
+
+            &lt;!&ndash; 环绕通知&ndash;&gt;
+            <aop:around method="accountAdvice" pointcut-ref="myPointcut"/>
+        </aop:aspect>
+
+
+    </aop:config>
+        -->
+
+    <!-- 添加context的schma
+        开启自动扫描：com.kaishengit包及其子包中加有特殊注解的类，并放入spring容器
+    -->
+<context:component-scan base-package="com.kaishengit"/>
+    <!-- 开户Aop注解的配置-->
+<aop:aspectj-autoproxy/>
+
+</beans>

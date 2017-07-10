@@ -10,6 +10,10 @@
 
     <properties>
         <spring-version>4.3.9.RELEASE</spring-version>
+        <junit-version>4.12</junit-version>
+        <cglib-version>3.2.5</cglib-version>
+        <springorg-version>4.3.5.RELEASE</springorg-version>
+        <springAspects-version>4.3.5.RELEASE</springAspects-version>
     </properties>
 
     <dependencies>
@@ -17,21 +21,41 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit-version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>${spring-version}</version>
         </dependency>
-
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
-            <version>3.2.5</version>
+            <version>${cglib-version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${springorg-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>${springAspects-version}</version>
+        </dependency>
+<!-- JSR330注解-->
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
+<!--DI的spring单元测试-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>4.3.5.RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -50,5 +74,4 @@
         </plugins>
 
     </build>
-
 </project>

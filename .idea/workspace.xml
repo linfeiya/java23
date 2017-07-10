@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e10f67b6-112a-4716-b6a9-9c112a3fa429" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/mybatis.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mydatis/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mydatis/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mydatis/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mydatis/src/main/main.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mydatis/src/test/test.iml" />
-    </list>
+    <list default="true" id="e10f67b6-112a-4716-b6a9-9c112a3fa429" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,31 +15,34 @@
       <file leaf-file-name="Dept.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mydatis/src/main/java/com/kaishengit/entity/Dept.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="35">
+            <state relative-caret-position="234">
               <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-              <folding />
+              <folding>
+                <element signature="e#264#265#0" expanded="false" />
+                <element signature="e#303#304#0" expanded="false" />
+                <element signature="e#370#371#0" expanded="false" />
+                <element signature="e#392#393#0" expanded="false" />
+                <element signature="e#440#441#0" expanded="false" />
+                <element signature="e#471#472#0" expanded="false" />
+                <element signature="e#497#498#0" expanded="false" />
+                <element signature="e#513#514#0" expanded="false" />
+                <element signature="e#546#547#0" expanded="false" />
+                <element signature="e#565#566#0" expanded="false" />
+                <element signature="e#596#597#0" expanded="false" />
+                <element signature="e#618#619#0" expanded="false" />
+                <element signature="e#662#663#0" expanded="false" />
+                <element signature="e#693#694#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mydatis/src/main/java/com/kaishengit/entity/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
+            <state relative-caret-position="26">
               <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="23" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyBatisTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mydatis/src/test/java/com/kaishengit/mybatis/MyBatisTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="26" column="39" lean-forward="true" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -81,8 +72,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="351" />
-    <option name="y" value="203" />
+    <option name="x" value="63" />
+    <option name="y" value="68" />
     <option name="width" value="1191" />
     <option name="height" value="635" />
   </component>
@@ -101,8 +92,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -291,7 +282,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="E:/software/linux/vendor/git-for-windows/bin/git.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/springAop" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunDashboard">
@@ -709,15 +700,15 @@
       <workItem from="1499249013046" duration="429000" />
       <workItem from="1499249661352" duration="24000" />
       <workItem from="1499253373394" duration="401000" />
+      <workItem from="1499676696464" duration="61000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2157000" />
+    <option name="totallyTimeSpent" value="2218000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="351" y="203" width="1191" height="635" extended-state="0" />
-    <editor active="true" />
+    <frame x="63" y="68" width="1191" height="635" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -733,7 +724,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2161702" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2161702" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -777,9 +768,65 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/mydatis/src/main/java/com/kaishengit/entity/Dept.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding>
+            <element signature="e#264#265#0" expanded="false" />
+            <element signature="e#303#304#0" expanded="false" />
+            <element signature="e#370#371#0" expanded="false" />
+            <element signature="e#392#393#0" expanded="false" />
+            <element signature="e#440#441#0" expanded="false" />
+            <element signature="e#471#472#0" expanded="false" />
+            <element signature="e#497#498#0" expanded="false" />
+            <element signature="e#513#514#0" expanded="false" />
+            <element signature="e#546#547#0" expanded="false" />
+            <element signature="e#565#566#0" expanded="false" />
+            <element signature="e#596#597#0" expanded="false" />
+            <element signature="e#618#619#0" expanded="false" />
+            <element signature="e#662#663#0" expanded="false" />
+            <element signature="e#693#694#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mydatis/src/main/java/com/kaishengit/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mydatis/src/test/java/com/kaishengit/mybatis/MyBatisTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="26" column="39" lean-forward="true" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mydatis/src/main/java/com/kaishengit/entity/Dept.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-          <folding />
+          <folding>
+            <element signature="e#264#265#0" expanded="false" />
+            <element signature="e#303#304#0" expanded="false" />
+            <element signature="e#370#371#0" expanded="false" />
+            <element signature="e#392#393#0" expanded="false" />
+            <element signature="e#440#441#0" expanded="false" />
+            <element signature="e#471#472#0" expanded="false" />
+            <element signature="e#497#498#0" expanded="false" />
+            <element signature="e#513#514#0" expanded="false" />
+            <element signature="e#546#547#0" expanded="false" />
+            <element signature="e#565#566#0" expanded="false" />
+            <element signature="e#596#597#0" expanded="false" />
+            <element signature="e#618#619#0" expanded="false" />
+            <element signature="e#662#663#0" expanded="false" />
+            <element signature="e#693#694#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -795,7 +842,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-          <folding />
+          <folding>
+            <element signature="e#264#265#0" expanded="false" />
+            <element signature="e#303#304#0" expanded="false" />
+            <element signature="e#370#371#0" expanded="false" />
+            <element signature="e#392#393#0" expanded="false" />
+            <element signature="e#440#441#0" expanded="false" />
+            <element signature="e#471#472#0" expanded="false" />
+            <element signature="e#497#498#0" expanded="false" />
+            <element signature="e#513#514#0" expanded="false" />
+            <element signature="e#546#547#0" expanded="false" />
+            <element signature="e#565#566#0" expanded="false" />
+            <element signature="e#596#597#0" expanded="false" />
+            <element signature="e#618#619#0" expanded="false" />
+            <element signature="e#662#663#0" expanded="false" />
+            <element signature="e#693#694#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -811,7 +873,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-          <folding />
+          <folding>
+            <element signature="e#264#265#0" expanded="false" />
+            <element signature="e#303#304#0" expanded="false" />
+            <element signature="e#370#371#0" expanded="false" />
+            <element signature="e#392#393#0" expanded="false" />
+            <element signature="e#440#441#0" expanded="false" />
+            <element signature="e#471#472#0" expanded="false" />
+            <element signature="e#497#498#0" expanded="false" />
+            <element signature="e#513#514#0" expanded="false" />
+            <element signature="e#546#547#0" expanded="false" />
+            <element signature="e#565#566#0" expanded="false" />
+            <element signature="e#596#597#0" expanded="false" />
+            <element signature="e#618#619#0" expanded="false" />
+            <element signature="e#662#663#0" expanded="false" />
+            <element signature="e#693#694#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -827,33 +904,47 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mydatis/src/main/java/com/kaishengit/entity/Dept.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
+        <state relative-caret-position="234">
           <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mydatis/src/main/java/com/kaishengit/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="23" />
-          <folding />
+          <folding>
+            <element signature="e#264#265#0" expanded="false" />
+            <element signature="e#303#304#0" expanded="false" />
+            <element signature="e#370#371#0" expanded="false" />
+            <element signature="e#392#393#0" expanded="false" />
+            <element signature="e#440#441#0" expanded="false" />
+            <element signature="e#471#472#0" expanded="false" />
+            <element signature="e#497#498#0" expanded="false" />
+            <element signature="e#513#514#0" expanded="false" />
+            <element signature="e#546#547#0" expanded="false" />
+            <element signature="e#565#566#0" expanded="false" />
+            <element signature="e#596#597#0" expanded="false" />
+            <element signature="e#618#619#0" expanded="false" />
+            <element signature="e#662#663#0" expanded="false" />
+            <element signature="e#693#694#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mydatis/src/test/java/com/kaishengit/mybatis/MyBatisTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
-          <caret line="26" column="39" lean-forward="true" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+          <caret line="26" column="39" lean-forward="false" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mydatis/src/main/java/com/kaishengit/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
