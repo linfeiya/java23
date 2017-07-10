@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<bean id="inDao" class="com.kaishengit.dao.InitDao" lazy-init="true"/>
+
+<!-- <bean id="inDao" class="com.kaishengit.dao.InitDao" scope="prototype"/> -->
+<bean id="destoryDao" class="com.kaishengit.dao.DestoryDao" scope="singleton">
+	<property name="inDao" ref="inDao"/>
+</bean>
+
+<!-- <bean id="inDao" class="com.kaishengit.dao.InitDao" scope="prototype"/> -->
+
+
+<bean id="account" class="com.kaishengit.entity.Account">
+
+		<property name="names" value="李四"/>
+		<property name="address" value="23"/>
+	
+</bean>
+<bean id="user" class="com.kaishengit.entity.User">
+	<property name="account" ref="account"/>
+	<property name="name" value="张三"/>
+	<property name="age" value="22"/>
+	<property name="nameList">
+		<list>
+			<value>jack</value>
+			<value>tom</value>
+			<value>小明</value>
+		</list>
+	</property>
+	<property name="userMap">
+		<map>
+			<entry key="k1" value-ref="account"/>
+		</map>
+	</property>
+	<property name="mySet">
+		<set>
+			<value>abc</value>
+			
+		</set>
+	</property>
+	<property name="pro">
+		<props>
+			<prop key="h1">m1</prop>
+			<prop key="h2">m2</prop>
+		</props>
+	
+	</property>
+
+</bean>
+
+
+
+
+
+<!-- 自动注入  autowire属性
+<bean id="userDao" class="com.kaishengit.dao.UserDao"/>
+<bean class="com.kaishengit.dao.AccountDao"/>
+<bean id="accountDao" class="com.kaishengit.dao.AccountDao" autowire="byName">
+	<property name="user" ref="userDao"></property>
+</bean>
+ -->
+ <!-- set 注入
+ <bean id="userDao" class="com.kaishengit.dao.UserDao"/>
+ <bean id="accountDao" class="com.kaishengit.dao.AccountDao">
+ 	<property name="user" ref="userDao"/>
+ </bean> -->
+ 
+<!--   构造方法参数注入 
+ <bean id="userDao" class="com.kaishengit.dao.UserDao"/>
+ <bean id="accountDao" class="com.kaishengit.dao.AccountDao">
+ 	<constructor-arg name="accDao" ref="userDao"/>
+ </bean> -->
+</beans>
