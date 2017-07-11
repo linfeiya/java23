@@ -1,13 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:p="http://www.springframework.org/schema/p"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-<!--自动注入 byName名字set后面的 byType类型  constructor先要挂参数名后根据参数类型-->
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+  <!-- 读取配置文件-->
+    <context:property-placeholder location="classpath:config.properties"/>
+    <!--s配置JDBCTemplate-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!-- 开启tx注解的事务管理-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <!--配置JDBC事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--开启自动扫描-->
+    <context:component-scan base-package="com.kaishengit"/>
+    <!-- 通知 -->
+    <aop:aspectj-autoproxy/>
+<!--添加数据库连接池-->
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+
+    </bean>
+
+
+    <!--自动注入 byName名字set后面的 byType类型  constructor先要挂参数名后根据参数类型
     <bean id="dao" class="com.kaishengit.dao.UserDao"/>
     <bean class="com.kaishengit.dao.UserDao"/>
-    <bean id="service" class="com.kaishengit.service.UserService" autowire="constructor"/>
-
+    <bean id="service" class="com.kaishengit.service.UserService" autowire="constructor"/>-->
     <!-- p标签注入 本质上是set注入
     <bean id="userDao" class="com.kaishengit.dao.UserDao"/>
     <bean id="service" class="com.kaishengit.service.UserService"
