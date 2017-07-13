@@ -13,6 +13,9 @@ public class MyInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        return super.preHandle(request, response, handler);
+
+        System.out.println("拦截器启动了-----------");
+        return true;
+
     }
 }
