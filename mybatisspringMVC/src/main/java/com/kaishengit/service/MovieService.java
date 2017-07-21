@@ -1,5 +1,7 @@
 package com.kaishengit.service;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 import com.kaishengit.entity.Movie;
 
 import java.util.List;
@@ -9,5 +11,11 @@ import java.util.List;
  */
 public interface MovieService {
     List<Movie> findAll();
+    void  save(Movie movie);
+    PageInfo<Movie> findByParam(String title,String daoyan,Float min,Float max,Integer pageNo);
+    Movie findById(Integer id);
 
+    void update(Movie movie);
+
+    void delById(Integer id);
 }
