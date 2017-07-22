@@ -23,4 +23,6 @@ public interface CustomerMapper {
     int updateByPrimaryKeySelective(Customer record);
 
     int deleteByPrimaryKey(Integer id);
+
+    void updateByPrimaryKey(Customer customer);
 }

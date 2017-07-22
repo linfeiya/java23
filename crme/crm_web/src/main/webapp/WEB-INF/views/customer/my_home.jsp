@@ -135,7 +135,7 @@
             last:'末页',
             prev:'上一页',
             next:'下一页',
-            href:"?p={{number}}"
+            href:"?p={{number}}&keyword=${keyword}"
         });
         </c:if>
 

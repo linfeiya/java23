@@ -25,4 +25,8 @@ public interface CustomerService {
     void editCustomer(Customer customer);
 
     void delCustomer(Customer customer);
+
+    void shareCustomerToPublic(Customer customer, Account account);
+
+    void transferCustomerToAccount(Customer customer, Account account,Integer accountId);
 }

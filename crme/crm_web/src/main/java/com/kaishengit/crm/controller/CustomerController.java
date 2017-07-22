@@ -6,7 +6,9 @@ import com.kaishengit.crm.controller.exception.ForbiddenException;
 import com.kaishengit.crm.controller.exception.NotFoundException;
 import com.kaishengit.crm.entity.Account;
 import com.kaishengit.crm.entity.Customer;
+import com.kaishengit.crm.service.AccountService;
 import com.kaishengit.crm.service.CustomerService;
+import com.kaishengit.exception.AuthenticationException;
 import com.kaishengit.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +28,8 @@ import java.util.Map;
 public class CustomerController extends BaseController{
     @Autowired
     private CustomerService customerService;
+    @Autowired
+    private AccountService accountService;
     //新增客户
     @GetMapping("/my/new")
     public String newMyCustomer(Model model){
@@ -77,6 +81,7 @@ public class CustomerController extends BaseController{
             throw new ForbiddenException();
         }
         model.addAttribute("customer",customer);
+        model.addAttribute("accountList",accountService.findAllAccount());
         return "customer/info";
     }
     //修改客户信息
@@ -125,4 +130,38 @@ public class CustomerController extends BaseController{
         customerService.delCustomer(customer);
         return "redirect:/customer/my";
     }
+    //放入公海
+    @GetMapping("/my/{id:\\d+}/share/public")
+    public String customerToPublic(@PathVariable Integer id,HttpSession session,RedirectAttributes redirectAttributes){
+        Account account = getCurrUser(session);
+        Customer customer = customerService.findById(id);
+        if (customer == null){
+            throw new NotFoundException();
+        }
+        if (!customer.getAccountId().equals(account.getId())) {
+            throw new AuthenticationException();
+        }
+        customerService.shareCustomerToPublic(customer,account);
+        redirectAttributes.addFlashAttribute("message","已成功将"+customer.getCustName()+"放入公海");
+        return "redirect:/customer/my";
+
+    }
+    //转移客户
+    @GetMapping("/my/{custId:\\d+}/tran/{accuntId:\\d+}")
+    public String tranCustomerToAccount(@PathVariable Integer custId,
+                                        @PathVariable Integer accountId,
+                                        HttpSession session,RedirectAttributes redirectAttributes){
+        Account account = getCurrUser(session);
+        Customer customer = customerService.findById(custId);
+        if (customer == null){
+            throw new NotFoundException();
+        }
+        if (!customer.getAccountId().equals(account.getId())){
+            throw new AuthenticationException();
+        }
+        customerService.transferCustomerToAccount(customer,account,accountId);
+        redirectAttributes.addFlashAttribute("message","成功将"+customer.getCustName()+"转交");
+        return "redirect:/customer/my";
+    }
+
 }

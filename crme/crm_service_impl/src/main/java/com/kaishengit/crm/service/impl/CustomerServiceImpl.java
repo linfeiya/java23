@@ -67,5 +67,21 @@ public class CustomerServiceImpl implements CustomerService{
     public void delCustomer(Customer customer) {
         customerMapper.deleteByPrimaryKey(customer.getId());
     }
+    //将客户放入公海
+    @Override
+    public void shareCustomerToPublic(Customer customer, Account account) {
+
+        customer.setReminder(account.getUserName()+"将客户 "+customer.getCustName()+" 放入公海");
+        customer.setAccountId(null);
+        customerMapper.updateByPrimaryKey(customer);
+    }
+    //将客户转给其他账号
+    @Override
+    public void transferCustomerToAccount(Customer customer, Account account,Integer accountId) {
+        customer.setAccountId(accountId);
+        customer.setReminder("从" + account.getUserName() + "转交过来");
+        customerMapper.updateByPrimaryKey(customer);
+
+    }
 
 }
