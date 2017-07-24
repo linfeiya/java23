@@ -138,6 +138,7 @@
                   if (data.state == 'success'){
                       layer.msg("新增成功",function () {
                           window.location.href="/my/new";
+
                       });
                   }
               }).error(function(){

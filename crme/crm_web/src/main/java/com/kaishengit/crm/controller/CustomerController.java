@@ -16,7 +16,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -147,7 +150,7 @@ public class CustomerController extends BaseController{
 
     }
     //转移客户
-    @GetMapping("/my/{custId:\\d+}/tran/{accuntId:\\d+}")
+    @GetMapping("/my/{custId:\\d+}/tran/{accountId:\\d+}")
     public String tranCustomerToAccount(@PathVariable Integer custId,
                                         @PathVariable Integer accountId,
                                         HttpSession session,RedirectAttributes redirectAttributes){
@@ -162,6 +165,36 @@ public class CustomerController extends BaseController{
         customerService.transferCustomerToAccount(customer,account,accountId);
         redirectAttributes.addFlashAttribute("message","成功将"+customer.getCustName()+"转交");
         return "redirect:/customer/my";
+    }
+    //导出
+    @GetMapping("/my/export")
+    public void exportExcel(HttpSession session, HttpServletResponse response) throws IOException {
+        Account account = getCurrUser(session);
+        //设置MIME头
+        response.setContentType("application/vnd.ms-excel");
+        //设置model弹出的文件名称
+        response.addHeader("Content-Dispostion","attachment;filename=\"customer.xls\"");
+        customerService.exportAccountCustomerToExcel(account,response.getOutputStream());
+    }
+
+    //公海客户
+    @GetMapping("/public")
+    public String publicCustomer(Model model,
+                                 @RequestParam(required = false,defaultValue = "1",value = "p") Integer pageNum,
+                                 @RequestParam(required = false,defaultValue = "") String keyword,
+                                 HttpSession session){
+        keyword = StringUtil.isoUtf8(keyword);
+        Account account = getCurrUser(session);
+        Map<String,Object> map = Maps.newHashMap();
+        map.put("pageNum",pageNum);
+        map.put("keyword",keyword);
+        map.put("accountId",account.getId());
+
+        PageInfo<Customer> pageInfo = customerService.findMyCustomer(map);
+        model.addAttribute("pageInfo",pageInfo);
+        model.addAttribute("keyword",keyword);
+
+        return "customer/public";
     }
 
 }

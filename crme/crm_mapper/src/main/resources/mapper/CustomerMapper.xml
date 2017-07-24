@@ -239,6 +239,7 @@
         </if>
         ORDER BY id DESC
     </select>
+
     <update id="updateByExampleSelective" parameterType="map">
         update customer
         <set>

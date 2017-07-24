@@ -13,7 +13,6 @@ import java.util.Map;
  */
 public interface CustomerMapper {
 
-
     List<Customer> findMyCustomer(Map<String, Object> map);
 
     void insert(Customer customer);
@@ -25,4 +24,6 @@ public interface CustomerMapper {
     int deleteByPrimaryKey(Integer id);
 
     void updateByPrimaryKey(Customer customer);
+
+    List<Customer> selectByExample(CustomerExample customerExample);
 }

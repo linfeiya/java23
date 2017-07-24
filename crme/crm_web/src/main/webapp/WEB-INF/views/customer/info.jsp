@@ -167,12 +167,12 @@
             });
         });
         $("#tranBtnOk").click(function () {
-            var accuntId = $("#accountId").val();
-            if (!accuntId){
+            var accountId = $("#accountId").val();
+            if (!accountId){
                 layer.msg("请选择转入账户");
                 return;
             }
-            window.location.href="/customer/my/"+ custId + "/tran/" +accuntId;
+            window.location.href="/customer/my/"+ custId + "/tran/" +accountId;
 
         });
         //放入公海
